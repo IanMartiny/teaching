@@ -1,0 +1,307 @@
+%Thedore Ian Martiny
+%Summer 2016 Homework 1
+
+\documentclass[addpoints,answers]{exam}
+\newcommand{\naturals}{\mathbb{N}}
+\newcommand{\reals}{\mathbb{R}}
+\renewcommand{\baselinestretch}{1.5}
+%\setlength{\textwidth}{16cm}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage{colortbl}
+\usepackage{fullpage}
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{multicol}
+\usepackage{setspace}
+\usepackage{xcolor}
+ 
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{Gray}{gray}{0.85}
+ 
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\newcolumntype{a}{>{\columncolor{Gray}}c} 
+\lstset{style=mystyle}
+\begin{document}
+\singlespacing
+
+\begin{center}
+  {\large\textbf{CSCI 2824 - Discrete Structures}}
+
+  {\large\textbf{Homework 2}}
+\end{center}
+
+You MUST show your work. If you only present answers you will receive minimal credit. This homework is worth \numpoints pts.
+
+\textbf{Due: Friday June 10}
+
+\begin{questions}
+  \question[2]\label{qn:1} Prove that for all rational numbers $x$ and $y$, $x+y$ is rational.
+    \vspace*{\fill}
+
+    \begin{solution}
+      This is a direct proof. Since $x$ is rational we can write $x = \frac pq$ for some integers $p,q$. Similarly we can write $y = \frac ab$ for some integers $a,b$. Then:
+      \begin{align*}
+        x + y &= \frac pq + \frac ab\\
+        &= \frac{pb}{qb} + \frac{aq}{qb}\\
+        &= \frac{pb + aq}{qb}
+      \end{align*}
+      Since $a,b,p,q$ are all integers, $pb +aq$ and $qb$ are integers. Thus $x+y$ is a rational number.
+
+      \qed
+    \end{solution}
+
+  \question[4] Prove that for all real numbers $x$ and $y$, if $xy \leq 2$, then either $x\leq \sqrt{2}$ or $y \leq \sqrt{2}$.
+    \vspace*{\fill}
+
+    \begin{solution}
+      Proof by contrapositive. That is we prove that if $x > \sqrt{2}$ \textbf{and} $y > \sqrt{2}$ then $xy > 2$. Simply multiply the numbers: Since $x,y > \sqrt{2}$ we have that $xy>\sqrt{2}\cdot\sqrt{2}$. Or more simply, $xy > 2$. This proves the original claim that $xy \leq 2$ implies that $x \leq \sqrt{2}$ or $y\leq \sqrt{2}$
+
+      This can also be proved by contradiction, but you'll probably just contradict the assumption that $xy \leq 2$, meaning you're really doing a contrapositive argument.
+
+      \qed
+    \end{solution}
+
+  %\question[10] Prove that the real numbers have the Archimedean Property. That is given any real numbers $x$ and $y$ prove that there is an integer $n$ such that $xn > y$.
+  %\vspace*{\fill}
+
+  %\begin{solution}
+  %\end{solution}
+
+  \question[6] Prove or disprove the following:
+  \begin{parts}
+    \part There exist rational numbers $a$ and $b$ such that $a^b$ is rational.
+    \vspace*{\fill}
+
+    \begin{solution}
+      This is true, choose $a=b=1$ then $a^b = 1^1 = 1$ which is rational.
+      
+      \qed
+    \end{solution}
+
+    \part There exist rational numbers $a$ and $b$ such that $a^b$ is irrational.
+    \vspace*{\fill}
+
+    \begin{solution}
+      This is also true. Choose $a = 2$ and $b = \frac 12$. Then $a^b = 2^{\frac 12} = \sqrt{2}$. We showed in class that $\sqrt{2}$ is irrational.
+
+      \qed
+    \end{solution}
+  \end{parts}
+
+  \question[7] Prove that for all \emph{positive} integers $m,n$: $2m + 5n^2 = 20$ has no solution.
+  \vspace*{\fill}
+  \begin{solution}
+    This solutions is more long than difficult. In order to use positive integers to satisfy the equation we must have that $1\leq m \leq 10$. Note that 0 is NOT positive.
+
+    Similarly to satisfy the equation we must have that $1 \leq n \leq 2$. 
+
+    However note that when $n=2$ then $5n^2 = 20$ so $m =0$, this is not allowed so the ONLY possible option for $n$ is 1. Thus we must have $2m = 15$ (after reducing our equation). This is not possible for integral $m$. So no solution exists, with positive integers.
+
+    \qed
+  \end{solution}
+
+  %\question[8] Exhaustively prove (prove by cases) that $|xy| = |x||y|$. (\textbf{Hint:} There are 4 cases)
+  %\vspace*{\fill}
+  %\begin{solution}
+  %\end{solution}
+
+  %\question[6] Prove the following:
+  %\begin{parts}
+    %\part If $x^3-1$ is even then $x$ is odd.
+
+    %\part If $x+y$ is even then $x$ and $y$ have different parity (that is one is even and the other is odd).
+  %\end{parts}
+  %\vspace*{\fill}
+  %\begin{solution}
+  %\end{solution}
+
+  \question[5] Prove that that the difference between an irrational number $x$ and a rational number $y$ is irrational.
+  \vspace*{\fill}
+  \begin{solution}
+    Proof by contradiction. That is suppose the difference between an irrational number $x$ and a rational number $y$ is rational. Then we have the following circumstance:
+
+    Let $y = \frac pq$ for integers $p,q$, we can't write $x$ like this but by our assumption we can write $x-y = \frac ab$ for some integers $a,b$, or :
+    \begin{align*}
+      x - y &= \frac ab\\
+      x - \frac pq &= \frac ab\\
+      x &= \frac ab + \frac pq\\
+    \end{align*}
+
+    And by the proof of Question~\ref{qn:1}, the sum of two rationals is rational, so that $x$ is rational. This is a contradiction to our assumption, so it must be the case that the difference $x-y$ is NOT rational, i.e., irrational.
+
+    \qed
+  \end{solution}
+
+  \question[4] Prove that for all integers $n$ if $n^3 + 5$ is odd then $n$ is even.
+  \vspace*{\fill}
+  \begin{solution}
+    We prove this by contrapostive. That is we prove that if $n$ is odd then $n^3 + 5$ is even. If $n$ is odd then we can write $n = 2k+1$ for some integer $k$. Then we compute:
+    \begin{align*}
+      n^3 + 5 &= (2k+1)^3 + 5\\
+      &= 8k^3 + 12k^2 + 6k + 1 + 5\\
+      &= 8k^3 + 12k^2 + 6k + 6\\
+      &= 2(4k^3 + 6k^2 + 3k + 3)
+    \end{align*}
+    Thus $n^3 + 5$ is even. This proves the original claim that if $n^3+5$ is odd then $n$ is even.
+
+    \qed
+  \end{solution}
+
+  \question[8] Verify the following equation:
+  %\begin{parts}
+    %\part[10]
+    %\[
+      %\frac{1}{2\cdot 4} + \frac{1\cdot 3}{2\cdot 4 \cdot 6} + \frac{1\cdot 3 \cdot 5}{2\cdot 4 \cdot 6 \cdot 8} + \cdots + \frac{1\cdot 3\cdot 5 \cdots (2n-1)}{2\cdot 4 \cdot 6 \cdots (2n+2)} = \frac{1}{2} - \frac{1\cdot 3 \cdot 5 \cdots (2n+1)}{2\cdot 4 \cdot 6 \cdots (2n+2)}
+    %\]
+    %\vspace*{\fill}
+    %\begin{solution}
+    %\end{solution}
+
+    %\part[10] 
+    \[
+      1^2 - 2^2 + 3^2 - \cdots + (-1)^{n+1}n^2 = \frac{(-1)^{n+1} n (n+1)}{2}
+    \]
+    \vspace*{\fill}
+    \begin{solution}
+      We prove this by Induction: \textbf{Base case:} $n = 1$, $1^2 = \frac{1(2)}2 = 1$ $\checkmark$.
+
+      \textbf{IH:} If $1^2 - 2^2 + \cdots + (-1)^{n+1}n^2 = \frac{(-1)^{n+1}n (n+1)}2$ then we show $1^2 - 2^2 + \cdots + (-1)^{n+2}(n+1)^2 = \frac{(-1)^{n+2}(n+1)(n+2)}2$.
+
+      For simplicity: We're trying to show that 
+      \[
+        \sum_{j=1}^n (-1)^{j+1}j^2 = \frac{(-1)^{n+1} n (n+1)}{2} \implies \sum_{j=1}^{n+1} (-1)^{j+1}j^2 = \frac{(-1)^{n+2} (n+1)(n+2)}{2}
+      \]
+
+      Lets begin:
+      \begin{align*}
+        \sum_{j=1}^{n+1} (-1)^{j+1}j^2 &= \sum_{j=1}^{n} (-1)^{j+1}j^2 + (-1)^{n+2}(n+1)^2\\
+        \text{(by \textbf{IH:})\hspace{1cm}} &= \frac{(-1)^{n+1} n (n+1)}{2} + (-1)^{n+2}(n+1)^2\\
+        &= \frac{(-1)^{n+1} n (n+1)}{2} + \frac{2(-1)^{n+2}(n+1)^2}{2}\\
+        &= \frac{(-1)^{n+1} (n^2 + n) + (n^2 + 2n + 1) (2) (-1)^{n+2}}2\\
+        \intertext{Re-grouping terms:}
+        &= \frac{(-1)^{n+1} n^2 + (-1)^{n+1}(2)n^2 + (-1)^{n+1}n + (-1)^{n+2}(2)(2n) + (-1)^{n+2}(2)(1)}{2}\\
+        \intertext{The next step is kind of involved. We're using that $(-1)^{n} + (-1)^{n+1} = 0$ for all $n$, since one is $-1$ and the other is $1$. However in our case one of each term (the one with $(-1)^{n+2}$) has a factor of 2 in front, so it takes over and replaces the zero.}
+        &= \frac{(-1)^{n+2}n^2 + (-1)^{n+2} 3n + (-1)^{n+2} 2}{2}\\
+        &= \frac{(-1)^{n+2}(n+1)(n+2)}2
+      \end{align*}
+
+      \qed
+    \end{solution}
+  %\end{parts}
+  
+  \question[6] Prove that $7^n -1$ is divisible by 6 for all integers $n\geq 1$.
+  \vspace*{\fill}
+  \begin{solution}
+    We prove this by induction. \textbf{Base case:} $n=1$ gives $7-1 = 6$ clearly $6\mid 6$.
+
+    \textbf{IH:} If $7^n -1$ is divisible by 6 we show that $7^{n+1} - 1$ is divisible by 6.
+
+    Thus:
+    \begin{align*}
+      7^{n+1} - 1 &= 7^n\cdot 7 - 1\\
+      &= 7^n\cdot (1 + 6) - 1\\
+      &= 7^n - 1 + 6\cdot 7^n\\
+      \intertext{By \textbf{IH} we have that $7^n -1 = 6k$ for some integer $k$.}
+      &= 6k + 6\cdot 7^n\\
+      &= 6(k+7^n)\\
+    \end{align*}
+    we see that $7^{n+1}-1 = 6p$ for an integer $p$. This proves our inductions hypothesis, and closes our induction.
+
+    \qed
+  \end{solution}
+
+  \question[8] Prove the following by cases:
+  \begin{parts}
+    \part 
+    \[
+      \max\{x,y\} = \frac{x+y+|x-y|}{2}
+    \]
+    for all real numbers $x$ and $y$.
+    \vspace*{\fill}
+    \begin{solution}
+      We prove this by cases.
+
+      \textbf{Case 1:} $x\geq y$. Then $\max\{x,y\} = x$, and $x-y >0 \implies |x-y| = x-y$. So:
+      \begin{align*}
+        \frac{x + y + |x-y|}{2} &= \frac{x + y + x - y}{2}\\
+        &= \frac{2x}{2}\\
+        &= x
+      \end{align*}
+
+      \textbf{Case 2:} $x\leq y$. Then $\max\{x,y\} = y$ and $x-y < 0 \implies |x-y| = -(x-y)$. So:
+      \begin{align*}
+        \frac{x + y + |x-y|}{2} &= \frac{x + y - (x-y)}2\\
+        &= \frac{x + y - x + y}{2}\\
+        &= \frac{2y}{2}\\
+        &= y
+      \end{align*}
+
+      In either case we get that 
+    \[
+      \max\{x,y\} = \frac{x+y+|x-y|}{2}
+    \]
+    proving our claim.
+
+    \qed
+    \end{solution}
+
+    \part 
+    \[
+      \min\{x,y\} = \frac{x+y-|x-y|}{2}
+    \]
+    for all real numbers $x$ and $y$.
+    \vspace*{\fill}
+    \begin{solution}
+      We prove this by cases.
+
+      \textbf{Case 1:} $x\geq y$. Then $\min\{x,y\} = y$, and $x-y >0 \implies |x-y| = x-y$. So:
+      \begin{align*}
+        \frac{x + y - |x-y|}{2}  &= \frac{x + y - (x-y)}{2}\\
+        &= \frac{x + y - x + y}{2}\\
+        &= \frac{2y}{2}\\
+        &= y
+      \end{align*}
+
+      \textbf{Case 2:} $x\leq y$. Then $\min\{x,y\} = x$ and $x-y < 0 \implies |x-y| = -(x-y)$. So:
+      \begin{align*}
+        \frac{x + y - |x-y|}{2} &= \frac{x + y + (x-y)}2\\
+        &= \frac{x + y + x - y}{2}\\
+        &= \frac{2x}{2}\\
+        &= x
+      \end{align*}
+
+      In either case we get that 
+    \[
+      \min\{x,y\} = \frac{x+y-|x-y|}{2}
+    \]
+    proving our claim.
+
+    \qed
+    \end{solution}
+  \end{parts}
+\end{questions}
+\end{document}
