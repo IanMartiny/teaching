@@ -1,7 +1,7 @@
 %Thedore Ian Martiny
 %Summer 2016 Homework 1
 
-\documentclass[addpoints,answers]{exam}
+\documentclass[addpoints]{exam}
 \newcommand{\naturals}{\mathbb{N}}
 \newcommand{\reals}{\mathbb{R}}
 \renewcommand{\baselinestretch}{1.5}
@@ -56,24 +56,30 @@
 
 You MUST show your work. If you only present answers you will receive minimal credit. This homework is worth \numpoints pts.
 
-\textbf{Due: Friday June 10}
+\textbf{Due: Wednesday June 21}
 
 \begin{questions}
-  \question[2]\label{qn:1} Prove that for all rational numbers $x$ and $y$, $x+y$ is rational.
+  %% Question 1
+  \question[2]\label{qn:1} Prove that the sum of two odd integers is an even
+  integer.
     \vspace*{\fill}
-
     \begin{solution}
-      This is a direct proof. Since $x$ is rational we can write $x = \frac pq$ for some integers $p,q$. Similarly we can write $y = \frac ab$ for some integers $a,b$. Then:
+      Let $m,n$ be odd integers. Then we can write $m = 2k+1$, $n= 2j+1$ for
+      integers $k,j$. Then:
       \begin{align*}
-        x + y &= \frac pq + \frac ab\\
-        &= \frac{pb}{qb} + \frac{aq}{qb}\\
-        &= \frac{pb + aq}{qb}
+        m + n &= 2k+1 + 2j+1\\
+        &= 2k + 2j + 1 + 1\\
+        &= 2(k+j + 1)\\
+        &= 2p
       \end{align*}
-      Since $a,b,p,q$ are all integers, $pb +aq$ and $qb$ are integers. Thus $x+y$ is a rational number.
+      where $p$ is an integer.
+
+      Thus $m + n$ is even.
 
       \qed
     \end{solution}
 
+  %% Question 2
   \question[4] Prove that for all real numbers $x$ and $y$, if $xy \leq 2$, then either $x\leq \sqrt{2}$ or $y \leq \sqrt{2}$.
     \vspace*{\fill}
 
@@ -85,32 +91,44 @@ You MUST show your work. If you only present answers you will receive minimal cr
       \qed
     \end{solution}
 
-  %\question[10] Prove that the real numbers have the Archimedean Property. That is given any real numbers $x$ and $y$ prove that there is an integer $n$ such that $xn > y$.
-  %\vspace*{\fill}
+  %% Question 3
+  \question[10] Prove that the real numbers have the Archimedean Property. That
+  is given any positive real numbers $x$ and $y$ prove that there is an integer
+  $n$ such that $xn > y$.
+  \vspace*{\fill}
 
-  %\begin{solution}
-  %\end{solution}
+  \begin{solution}
+    Proof by contradiciton. Assume this is not true, and that there are two real
+    numbers $x,y$ such that for any integer $n$, $xn \leq y$. Equivalently we
+    can write, $n \leq \frac{y}{x}$ for every integer $n$. This provides an
+    upper bound on all integers, which we know is false. This is our
+    contradiction, thus the Archimedean Property is true.
+  \end{solution}
 
-  \question[6] Prove or disprove the following:
-  \begin{parts}
-    \part There exist rational numbers $a$ and $b$ such that $a^b$ is rational.
-    \vspace*{\fill}
+  %% Question 4
+  \question[6] Suppose $a,b$ and $c$ are integers. If $a^2$ divides $b$ and
+  $b^3$ divides $c$, then $a^6$ divides $c$. [Divides, is a formal statement in
+  math, $x$ divides $y$ means that $y$ is a multiple of $x$. For example $5$
+  divides $10$, but $4$ does not divide $2$. This is often written $5|10$,
+  $x|y$, $4\not|\ 2$ etc. For this problem it may help to think in terms of
+  multiples, $x|y$ means that $y= kx$ for some integer $k$.]
 
-    \begin{solution}
-      This is true, choose $a=b=1$ then $a^b = 1^1 = 1$ which is rational.
-      
-      \qed
-    \end{solution}
+  \begin{solution}
+    Since $a^2$ divides $b$ means that we can write $b = na^2$ for some integer
+    $n$. Similarly, since $b^3$ divides $c$ we can write $c = mb^3$ for some
+    integer $m$. Combining:
 
-    \part There exist rational numbers $a$ and $b$ such that $a^b$ is irrational.
-    \vspace*{\fill}
-
-    \begin{solution}
-      This is also true. Choose $a = 2$ and $b = \frac 12$. Then $a^b = 2^{\frac 12} = \sqrt{2}$. We showed in class that $\sqrt{2}$ is irrational.
-
-      \qed
-    \end{solution}
-  \end{parts}
+    \begin{align*}
+      c &= mb^3\\
+      &= m(na^2)^3\\
+      &= m\cdot n^3 \cdot (a^2)^3\\
+      &= p \cdot a^6
+    \end{align*}
+    where $p$ is an integer. Thus $c$ is a multiple of $a^6$, or $a^6$ divides
+    $c$.
+    
+    \qed
+  \end{solution}
 
   \question[7] Prove that for all \emph{positive} integers $m,n$: $2m + 5n^2 = 20$ has no solution.
   \vspace*{\fill}
@@ -172,16 +190,6 @@ You MUST show your work. If you only present answers you will receive minimal cr
   \end{solution}
 
   \question[8] Verify the following equation:
-  %\begin{parts}
-    %\part[10]
-    %\[
-      %\frac{1}{2\cdot 4} + \frac{1\cdot 3}{2\cdot 4 \cdot 6} + \frac{1\cdot 3 \cdot 5}{2\cdot 4 \cdot 6 \cdot 8} + \cdots + \frac{1\cdot 3\cdot 5 \cdots (2n-1)}{2\cdot 4 \cdot 6 \cdots (2n+2)} = \frac{1}{2} - \frac{1\cdot 3 \cdot 5 \cdots (2n+1)}{2\cdot 4 \cdot 6 \cdots (2n+2)}
-    %\]
-    %\vspace*{\fill}
-    %\begin{solution}
-    %\end{solution}
-
-    %\part[10] 
     \[
       1^2 - 2^2 + 3^2 - \cdots + (-1)^{n+1}n^2 = \frac{(-1)^{n+1} n (n+1)}{2}
     \]
@@ -303,5 +311,86 @@ You MUST show your work. If you only present answers you will receive minimal cr
     \qed
     \end{solution}
   \end{parts}
+
+  \question[10] Verify the inequality:
+  \[
+    2n + 1\leq 2^n, \, n\geq 3
+  \]
+
+  \begin{solution}
+    Proof by induction, base case, $n=3$: $2\cdot 3 + 1 = 7 < 8$ $\checkmark$.
+
+    \textbf{IH:} Assume that the inequality holds for some $k\geq 1$ then we
+    show it holds for $k+1$:
+
+    \begin{align*}
+      2(k+1) + 1 &= 2k + 2 + 1\\
+      &= 2k+1 + 2\\
+      \text{(by \textbf{IH})} &< 2^k + 2\\
+      &< 2^{k+1} \text{  since $k>1$}
+    \end{align*}
+    This closes the induction.
+
+    \qed.
+  \end{solution}
+
+  \question[10] Show that postage of 24 cents or more can be achieved by using
+  only 5-cent and 7-cent stamps.
+
+  \begin{solution}
+    Proof by (Strong) induction, base cases:
+    \begin{align*}
+      n = 24&: \text{ choose 2 5-cent and 2 7-cent stamps}\\
+      n = 25&: \text{ choose 5 5-cent stamps}\\
+      n = 26&: \text{ choose 1 5-cent and 3 7-cent stamps}\\
+      n = 27&: \text{ choose 4 5-cent and 1 7-cent stamps}\\
+      n = 28&: \text{ choose 4 7-cent stamps}\\
+    \end{align*}
+
+    \textbf{IH:} Assume that $n\geq 29$ and for each $k$ such that $24 \leq k <
+    n$ we have shown we can make postage using only 5-cent and 7-cent stamps. We
+    show that we can make $n$-cent postage.
+
+    By \textbf{IH} we can make $(n-5)$-cent postage, now add one more 5-cent
+    stamp.
+
+    \qed
+  \end{solution}
+
+  \question[20] Suppose we have two piles of cards containing $n$ cards each.
+  Two players play the following game. Each player, in turn, chooses one pile
+  and then removes any number of cards from the chosen pile. The player who
+  removes   the last card on the table wins the game. Show the second player can
+  always   win the game. [Note: You need to PROVE the second player can always
+  win.   Coming up with a strategy is a necessary step, but then you'll need to
+  prove   that strategy will always work. Hint: Induction]
+
+  \begin{solution}
+    The strategy is for the second player to mimic the move of the first player
+    but in the other pile. This means the second player will never eliminate a
+    pile before the first, forcing the first player to eliminate one pile first,
+    so the second can clear the table.
+
+    Proof this works (by Induction), base case, $n=1$. There are two piles each
+    with one card, when the first player chooses one pile and removes the only
+    card, the second player will remove the card from the remaining pile,
+    winning the game.
+
+    \textbf{IH:} Assume $n\geq 1$ and for any $k$ with $1\leq k < n$ there is a
+    strategy for the second player to win the game when there are two piles of
+    $k$ cards.
+
+    We show that the second player can also win when there are $n$ cards in each
+    pile: The first player will choose one pile, and remove $c$ cards from it.
+    The second player will now choose the \emph{other} pile and also remove $c$
+    cards from that. 
+
+    This is now a game with $n-c$ cards in each pile, by \textbf{IH} the second
+    player now has a winning strategy and will win.
+
+    This closes the induction.
+
+    \qed
+  \end{solution}
 \end{questions}
 \end{document}
