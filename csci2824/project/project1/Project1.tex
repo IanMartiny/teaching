@@ -42,7 +42,7 @@ clause is $\wedge$'d together:
 SAT is a very difficult problem to solve very quickly (in general) it is part of
 a class of problems known as NP-Complete.
 
-We will be working with 3SAT, which is a ``simplification'' -- technically it is
+We will be working with 3SAT, which is a ``simplification''---technically it is
 the same problem, but that is above the topics of this course. The
 ``simplification'' for 3SAT is that each clause must have EXACTLY 3 variables.
 So far in this handout we have NOT seen any 3SAT problems. An example of one is:
@@ -60,8 +60,8 @@ truth values. That is, the goal of this program is to create a general 3SAT
 problem with at most 10 variables and 10 clauses. Your program will then print
 this logical expression so the user can see it (you will use $\sim$ as opposed
 to $\neg$) and then ask the user for truth values for each of the variables.
-Then it will test whether those truth values make the whole expression true or
-not. If they do make the expression true, you should inform the user. If they do
+Then it will test whether those truth values make the whole expression TRUE or
+not. If they do make the expression TRUE, you should inform the user. If they do
 not, you again inform the user AND print the clause which is invalid.
 
 %%%% Expectations
@@ -95,7 +95,7 @@ just place numbers next to an $x$. You will print something like this:
   x8 \vee x1 \vee x3) \wedge (x9 \vee \sim x7 \vee x4)
 \]
 That is, you MUST print parentheses and $\vee$ and $\wedge$, use v and \^{} for
-this (it will, ironically, look better printed by your program than by \LaTeX).
+these (it will, ironically, look better printed by your program than by \LaTeX).
 
 After printing the expression you will ask the user for T/F values for each
 variable. You MUST ensure input is correct! If I enter: s, (instead of T/F) then
@@ -205,7 +205,7 @@ newline in the middle of a clause, do it in between clauses.
 Also worthy of note is that since everything is chosen randomly the situation
 where you have chosen to use 7 variables but $x_5$ (for example) does not appear
 in the randomly generated expression may occur. This is perfectly fine. This
-will happen with some non-zero probability given based on the number of clauses
+will happen with some non-zero probability based on the number of clauses
 there will be. You may decide how to handle this with respect to input
 collection. If you choose to still ask the user for a value of $x_5$ that is
 fine, if you choose to be clever and skip values that are not used that is also
