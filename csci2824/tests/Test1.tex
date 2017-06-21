@@ -1,0 +1,220 @@
+%Thedore Ian Martiny
+%Summer 2016 Test 1 Review
+
+\documentclass[addpoints,12pt]{exam}
+\newcommand{\naturals}{\mathbb{N}}
+\newcommand{\integers}{\mathbb{Z}}
+\newcommand{\reals}{\mathbb{R}}
+\renewcommand{\baselinestretch}{1.5}
+%\setlength{\textwidth}{16cm}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage{colortbl}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{multicol}
+\usepackage{nopageno}
+\usepackage{setspace}
+\usepackage{wasysym}
+\usepackage{xcolor}
+ 
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{Gray}{gray}{0.85}
+ 
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\newcolumntype{a}{>{\columncolor{Gray}}c} 
+\lstset{style=mystyle}
+\begin{document}
+\singlespacing
+\hspace*{\fill}\textbf{Name:}\underline{\hspace{8cm}}
+
+\begin{center}
+  {\large\textbf{CSCI 2824 - Discrete Structures}}
+
+  {\large\textbf{Test 1}}
+\end{center}
+
+Grade: \underline{\hspace{1cm}} /\numpoints
+%Grade: \numpoints /\numpoints
+
+
+\begin{questions}
+  \question[10] For the following pair of propositions show whether $P$ is
+  logically equivalent to $Q$:
+  \begin{parts}
+    \part $P = p \to q$, $Q = \neg p \vee q$
+    \vspace*{5cm}
+    \begin{solution}
+      \begin{tabular}[h]{|c|c|a|a|}
+        \hline
+        $p$ & $q$ & $p\to q$ & $\neg p \vee q$\\
+        \hline
+        T & T & T & T\\
+        T & F & F & F\\
+        F & T & T & T\\
+        F & F & T & T\\
+        \hline
+      \end{tabular}
+
+      Since the two columns have the same values, they are logically equivalent.
+    \end{solution}
+
+    \part $P = p \wedge q$, $Q = \neg q \to p$.
+    \vspace*{5cm}
+    \begin{solution}
+
+      \begin{tabular}[h]{|c | c | a | a|}
+        \hline
+        $p$ & $q$ & $p\wedge q$ & $\neg q\to p$\\
+        \hline
+        T & T & T & T\\
+        T & F & F & T\\
+        F & F & F & T\\
+        F & F & F & F\\
+        \hline
+      \end{tabular}
+
+      Since our two highlighted columns differ, these are not logically
+      equivalent.
+    \end{solution}
+  \end{parts}
+
+  \question[20] For the following parts list each set that has the same
+  cardinality as the given set, from the provided list of sets.
+  \begin{center}
+    $\naturals$, $\integers$, $\reals$, $\integers\times \integers$, $\{1,3\}$,
+    $\{a, 7\}$, $\{1,2,4,5\}$, $\{1,2,3,4,5\}$, $\{1,\{2,3\},\{4\}\}$,
+    $\{7,132,19,\{1\}\}$
+  \end{center}
+  \begin{parts}
+    \part $E$ - the set of all even integers.
+    \vspace*{2cm}
+    \begin{solution}
+      $\naturals$, $\integers$, $\integers \times\integers$.
+    \end{solution}
+
+    \part $[0,1]$ - all real numbers between 0 and 1, inclusive.
+    \vspace*{2cm}
+    \begin{solution}
+      $\reals$
+    \end{solution}
+
+    \part $\{a,b\}$
+    \vspace*{2cm}
+    \begin{solution}
+      $\{1,3\}$, $\{a,7\}$.
+    \end{solution}
+
+    \part $\{7,24,5\}$
+    \vspace*{2cm}
+    \begin{solution}
+      $\{1,\{2,3\}, \{4\}\}$.
+    \end{solution}
+  \end{parts}
+
+  \question[10] Let $A(x,y)$ be the propositional function $x$ attended $y$'s
+  office hours and $E(x)$ be the propositional function $x$ is enrolled in a
+  discrete mathematics course. Using these and our quantifiers turn the
+  following statements into symbols that they are equivalent to.
+  \begin{parts}
+    \part Brit attended someone's office hours.
+    \vspace*{2cm}
+    \begin{solution}
+      Either $\exists\, x$ such that $A(\text{Brit},x)$ or $\exists\, x
+      \exists\, y$ such that $A(x,y)$ were acceptable here.
+    \end{solution}
+
+    \part Every discrete math student attended someone's office hours.
+    \vspace*{2cm}
+    \begin{solution}
+      Either $\forall x\, $ such that $E(x), \exists y\, $ such that $A(x,y)$ or
+      $\forall x\, \exists y\, E(x)\to A(x,y)$.
+    \end{solution}
+  \end{parts}
+
+  \question[20] Prove that $\mathcal{P}(X\cap Y) = \mathcal{P}(X)\cap
+  \mathcal{P}(Y)$ for all sets $X$ and $Y$.
+  \vspace*{10cm}
+  \begin{solution}
+    To show set equality we show containment both ways.
+
+    If $A \in \mathcal{P}(X\cap Y)$ then $A\subseteq X\cap Y$ this means
+    $A\subseteq X$ and $A\subseteq Y$. Since $A\subseteq X$, $A\in
+    \mathcal{P}(X)$, since $A\subseteq Y$, $A\in \mathcal{P}(Y)$. Thus $A\in
+    \mathcal{P}(X)\cap \mathcal{P}(Y)$.
+
+    For the reverse direction: if $A\in \mathcal{P}(X)\cap \mathcal{P}(Y)$ then
+    $A\in \mathcal{P}(X)$ so $A\subseteq X$ and we also have $A\in
+    \mathcal{P}(Y)$ so $A\subseteq Y$. Thus $A\subseteq X\cap Y$ meaning that
+    $A\in \mathcal{P}(X\cap Y)$.
+    
+    \qed
+  \end{solution}
+
+  \question[25] Prove that $1^2 + 2^2 + \dots+ n^2 = \frac{n(n+1)(2n+1)}{6}$
+  \vspace*{10cm}
+  \begin{solution}
+    Proof by induction. Base case: $n=1$: $1^2 = \frac{1(2)(3)}{6}$
+
+    IH: We assume the identity holds for $n$ and show it holds for $n+1$ that is
+    we show:
+    \[
+      1^2 + 2^2 + \dots + n^2 + (n+1)^2 = \frac{(n+1)(n+2)(2n+3)}{6}
+    \]
+
+    \begin{align*}
+      \intertext{By the Inductive hypothesis:}
+      1^2 + 2^2 + \dots + n^2 + (n+1)^2 &= \frac{n(n+1)(2n+1)}{6} + (n+1)^2\\
+      &= \frac{n(n+1)(2n+1)}{6} + \frac{6(n+1)^2}{6}\\
+      &= \frac{(n+1) (n (2n+1) + 6(n+1))}{6}\\
+      &= \frac{(n+1) (2n^2 + n + 6 n + 6)}{6}\\
+      &= \frac{(n+1) (2n^2 + 7n + 6)}{6}\\
+      &= \frac{(n+1)(n+2)(2n+3)}{6}
+    \end{align*}
+
+    This closes the induction.
+
+    \qed
+  \end{solution}
+
+  \question[5] Define what it means that $f:X\to Y$ is a function.
+  \vspace*{2cm}
+  \begin{solution}
+    $f:X\to Y$ is a function if for every $x\in X$ there is exactly one $y\in Y$
+    such that $f(x) = y$.
+  \end{solution}
+
+  \question[10] For functions $f:Y\to Z$ and $g:X\to Y$ prove or disprove the
+  following claim: If $f\circ g$ is onto then $g$ is onto.
+  \begin{solution}
+    This is false. Choose $X = Z = \{1\}$ and $Y = \{1,2\}$. Define $g:X\to Y$
+    by $g(1) = 1$ and define $f:Y\to Z$ by $f(1) = 1$, $f(2)=1$. Then  $f\circ
+    g$ is onto since $f\circ g (1) = f(g(1)) = f(1) = 1$. But $g$ is not onto.
+  \end{solution}
+\end{questions}
+\end{document}
