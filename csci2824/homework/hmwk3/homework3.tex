@@ -1,0 +1,518 @@
+%Thedore Ian Martiny
+%Summer 2017 Homework 3
+
+\documentclass[addpoints]{exam}
+\newcommand{\naturals}{\mathbb{N}}
+\newcommand{\reals}{\mathbb{R}}
+\newcommand{\integers}{\mathbb{Z}}
+\newcommand{\rationals}{\mathbb{Q}}
+\renewcommand{\baselinestretch}{1.5}
+%\setlength{\textwidth}{16cm}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage{colortbl}
+\usepackage{fullpage}
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{multicol}
+\usepackage{setspace}
+\usepackage{wasysym}
+\usepackage{xcolor}
+ 
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{Gray}{gray}{0.85}
+ 
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\newcolumntype{a}{>{\columncolor{Gray}}c} 
+\lstset{style=mystyle}
+\begin{document}
+\singlespacing
+
+\begin{center}
+  {\large\textbf{CSCI 2824 - Discrete Structures}}
+
+  {\large\textbf{Homework 3}}
+\end{center}
+
+You MUST show your work. If you only present answers you will receive minimal 
+credit. This homework is worth \numpoints pts.
+
+\textbf{Due: Wednesday June 28}
+
+\begin{questions}
+  \question[4] For each of the following determine the number of elements in the
+  given set. 
+
+  \begin{parts}
+    \part $\{\}$
+    \begin{solution}
+      0
+    \end{solution}
+
+    \part $\{\{\},\{\{\}\}\}$.
+    \begin{solution}
+      2
+    \end{solution}
+
+    \part $\{a,b,\{\},\{\{\{\}\}\}\}$
+    \begin{solution}
+      4
+    \end{solution}
+
+    \part $\{a,b,\{a,b\},\{a,c\},\{a\}\}$
+    \begin{solution}
+      5
+    \end{solution}
+  \end{parts}
+
+  \question[5] For the following pairs of sets, determine which operator goes 
+  between the sets to make a true statement: $\in$, $\ni$, $\subseteq$, 
+  $\supseteq$, or none.
+
+  \begin{parts}
+    \part $\{1,2\}$, $\{1,2,\{1,2\}\}$
+    \begin{solution}
+      $\{1,2\}\in\{1,2,\{1,2\}\}$. However $\{1,2\}\subseteq\{1,2,\{1,2\}\}$ as
+      well.
+    \end{solution}
+
+    \part $\{1,2\}$, $\naturals$
+    \begin{solution}
+      $\{1,2\}\subseteq\naturals$
+    \end{solution}
+
+    \part $\{\naturals,\reals\}$, $\{\reals\}$
+    \begin{solution}
+      $\{\naturals,\reals\} \supseteq \{\reals\}$
+    \end{solution}
+
+    \part $\{\reals\}$, $\{1,3,4\}$
+    \begin{solution}
+      There is no relation between these two sets.
+    \end{solution}
+
+    \part $\reals$, $\{1,\pi, \sqrt{2}, \sqrt{-1}\}$
+    \begin{solution}
+      There is no relation between these two sets ($\sqrt{-1}$ is not a real 
+      number).
+    \end{solution}
+  \end{parts}
+
+  \question[5] For each of the following determine whether or not it is a 
+  function, if not explain why not.
+
+  \begin{parts}
+    \part $f:A\to B$ where $A = \{1,2,3,4,5\}$ and $B = \{b,x,t,m,z,y,a\}$ given
+    by the following set $\{(1,a),(4,b),(2,b)(5,t),(2,a)\}$.
+    \begin{solution}
+      No, $2\mapsto b$ and $2\mapsto a$.
+    \end{solution}
+
+    \part $g:\reals\to\reals$ given by $g(x) = \tan(x)$.
+    \begin{solution}
+      No. $\tan\left( \frac{\pi}{2} \right)$ has no value in $\reals$.
+    \end{solution}
+
+    \part $h: \naturals \to \integers^{>0}$ given by $h(x) = x-1$
+    \begin{solution}
+      No, 0 and 1 do not map to anything.
+    \end{solution}
+
+    \part $k: A\to B$ where $A = \{18,38,485,382385,25\}$ and 
+    $B = \{1,2,3,4,5\}$ given by the following set $\{(18,1),(38,1),(285,1),
+    (382385,1),(25,1)\}$.
+    \begin{solution}
+      No. $(285,1)$ makes no sense since $285\not\in A$. Additionally $485\in A$
+      maps to nothing.
+    \end{solution}
+
+    \part $l: \reals\to\reals$ given by $l(x) = \log(|x|)$.
+    \begin{solution}
+      No, $l(0)$ is not defined in the reals.
+    \end{solution}
+  \end{parts}
+
+  \question[5] Prove that if $X\subseteq Y$ then $X\cap Z \subseteq Y\cap Z$ for
+  all sets $X,Y,Z$. 
+  \begin{solution}
+    Let $X,Y,Z$ be sets such that $X\subseteq Y$. To show $X\cap Z \subseteq
+    Y\cap Z$ we take an arbitrary element in the first set and show it is also
+    in the second set. So let $r \in X\cap Z$, this tells us that $r\in X$
+    \textbf{AND} $r\in Z$. Since $X\subseteq Y$ we have that $r\in Y$. So $r\in
+    Y$ and $r\in Z$ so that $r\in Y\cap Z$. Thus every element of $X\cap Z$ is
+    in $Y\cap Z$ so $X\cap Z \subseteq Y\cap Z$.
+
+    \qed
+  \end{solution}
+
+  \question[5] Prove that $\mathcal{P}(X) \cup \mathcal{P}(Y) \subseteq 
+  \mathcal{P}(X\cup Y)$. Are they equal? If not give a counterexample.
+  \begin{solution}
+    Again we choose an arbitrary element of the first set and show it is in the
+    second: Let $r\in \mathcal{P}(X)\cup \mathcal{P}(Y)$. This means that $r$ is
+    a \emph{set}. In particular $r\subseteq X$ or $r\subseteq Y$. In either case
+    $r\subseteq X\cup Y$. Which means that $r\in\mathcal{P}(X\cup Y)$.
+
+    \qed
+
+    These sets are NOT always equal, for example choose $X = \{1,2\}$ and $Y =
+    \{a,b,c\}$ then $X\cup Y = \{1,a,2,b,c\}$. So $\{1,a\} \in \mathcal{P}(X\cup
+    Y)$ but $\{1,a\}\not\in \mathcal{P}(X)\cup \mathcal{P}(Y)$ since $a\not\in
+    X$ and $1\not\in Y$.
+  \end{solution}
+  
+  \question[20] For the following statements either give a proof or a 
+  counterexample. The sets $X,Y,Z$ are subsets of a universal set $U$. Counter 
+  examples must also include the definition for $U$.
+  \begin{parts}
+    \part For all sets $X$ and $Y$, either $X\subseteq Y$ or $Y\subseteq X$.
+    \begin{solution}
+      This is false. Let $U= \{1,2,3\}$ and $X = \{1\}$ and $Y = \{2\}$ then $X\not\subseteq Y$ and $Y \not\subseteq X$. 
+    \end{solution}
+
+    \part $\overline{Y\backslash X} = X \cup \overline{Y}$
+    \begin{solution}
+      This is true. Let $U$ be any universal set and $X,Y\subseteq U$. We show
+      the two given sets are subsets of each other. For reference we expand $
+      \overline{Y\backslash X}$, $a\in \overline{Y\backslash X}$ means that
+      $a\in U$ but $a\not\in Y\backslash X$. However $a$ may be in $X$.
+      
+      ($\subseteq$) If $a \in \overline{Y\backslash X}$ then that is saying that
+      $a\in U \backslash (Y\backslash X)$. That is $a$ is in $U$ and $a$ is not 
+      in $Y\backslash X$. If $a\in X$ then we are good, if it is not then that 
+      means that $a\in U$, but also we know for a fact that $a\not\in Y$, so
+      that $a\in U\backslash Y$ or $a\in \overline{Y}$.
+
+      ($\supseteq$) If $a \in X \cup \overline{Y}$ we have two cases, either 
+      $a\in X$ in which case $a\in \overline{Y\backslash X}$ by above. If $a \in
+      \overline{Y}$ this means that $a\in U\backslash Y$, or $a\in U$ and not in
+      $Y$. So that $a\in \overline{Y\backslash X}$, a larger set than 
+      $\overline{Y}$.
+
+      \qed
+    \end{solution}
+
+    \part $X \cup \left(Y\backslash Z\right) = \left(X \cup Y\right)\backslash 
+    \left(X\cup Z\right)$
+    \begin{solution}
+      This is not true. Consider $U = \{1,2,3,4,5\}$, $X= \{1,2,3\}$, $Y=\{4,5\}$,
+      $Z= \{3,5\}$. Then $X\cup \left(Y\backslash Z\right) = \{1,2,3,4\}$ but 
+      $\left(X \cup Y\right)\backslash \left(X\cup Z\right) = \{4\}$.
+
+      \qed
+    \end{solution}
+
+    \part $X \times \left( Y\cup Z\right) = \left(X\times Y\right) \cup \left(
+    X\times Z\right)$
+    \begin{solution}
+      This is true. Let $U$ be a universal set, and $X,Y,Z\subseteq U$. 
+
+      ($\subseteq$) If $a\in X\times \left(Y\cup Z\right)$ then $a$ is of the
+      form $(x,b)$ where $x\in X$ and $b\in Y\cup Z$. Thus $a\in X\times Y$ or 
+      $a\in X\times Z$. Thus $a\in \left(X\times Y\right) \cup \left(X\times
+      Z\right)$
+
+      ($\supseteq$) If $a\in \left(X\times Y\right) \cup \left( X\times
+      Z\right)$ then $a$ is of the form $(x,b)$ where $x\in X$ but depending on
+      where $a$ is either $b\in Y$ or $b\in Z$. Thus $a\in X\times \left(Y\cup
+      Z\right)$.
+
+      \qed
+    \end{solution}
+  \end{parts}
+
+  \question[3] For the following problems a function definition is given. You 
+  must describe a domain and co-domain that ensures it is actually a function.
+  The co-domain you provide need not be precisely the range.
+
+  \begin{parts}
+    \part $m(x) = \log(x)$.
+    \begin{solution}
+      Define $m: \reals^{>0} \to \reals$
+    \end{solution}
+
+    \part $n(x) = 12$
+    \begin{solution}
+      We can define the domain to be any set and the co-domain to be any set 
+      containing 12.
+    \end{solution}
+
+    \part $o(x)$ defined by the set $\{(1,2),(\pi,3),(12,3)\}$
+    \begin{solution}
+      We can use a domain to be any set containing $1,\pi,12$ and the
+      co-domain to be any set containing $2,3$.
+    \end{solution}
+  \end{parts}
+
+  \question[12] For the following functions determine whether they are 
+  one-to-one or onto or both or neither. 
+  \begin{parts}
+    \part $f:\integers \to\integers$, $f(n) = n+1$
+    \begin{solution}
+      This function is injective, if $m\not= n$ then $m+1\not= n+1$.
+
+      This is surjective, given $m\in \integers$ then $f(m-1) = m$.
+
+      Thus this is a bijection.
+    \end{solution}
+
+    \part $g:\integers\to\integers$, $g(n) = \lceil \frac{n}{2}\rceil$.
+    \begin{solution}
+      This function is not one-to-one, $g(0) = 0 = g(1)$.
+
+      This function is surjective, given $m\in \integers$ then $g(2m) = \lceil \frac{2m}{2} \rceil = \lceil m \rceil = m$.
+    \end{solution}
+
+    \part $h: \integers\times\integers \to \integers$, $h(m,n) = m-n$.
+    \begin{solution}
+      This function is not injective, $h(0,0) = 0 = h(2,2)$.
+
+      This function is surjective, given $m\in integers$ then $h(m,0) = m$.
+    \end{solution}
+
+    \part $j: \integers\times\integers \to \integers$, $j(m,n) = m^2 + n^2 + 2$.
+    \begin{solution}
+      This function is not injective $j(0,1) = 3 = j(1,0)$.
+
+      This function is not surjective there is no $(m,n)\in\integers\times\integers$ to result in a negative integer.
+    \end{solution}
+  \end{parts}
+
+  \question[5] Give examples of functions from $\naturals$ to $\naturals$ that
+  are:
+  \begin{parts}
+    \part one-to-one, but not surjective
+    \begin{solution}
+      Choose $f:\naturals\to\naturals$ defined by $f(n) = 2n$. This is not
+      surjective because nothing maps to 3. It is injective:
+
+      Choose $n\not=m \in \naturals$ then $2n\not= 2m$.
+
+      \qed
+    \end{solution}
+
+    \part surjective but not injective
+    \begin{solution}
+      Choose $g:\naturals\to\naturals$ defined by:
+      \[
+        g(n) = \begin{cases}
+          0 & \text{ if } n = 0, 1\\
+          n-1 & \text{ otherwise}
+        \end{cases}
+      \]
+      Then $g$ is clearly not injective, both $0$ and $1$ map to $0$. But is
+      surjective:
+
+      Choose $m\in\naturals$ if $m = 0$ then $f(0) = 0$ otherwise $f(m+1) = m$.
+    \end{solution}
+
+    \part injective and surjective (but not the identity function)
+    \begin{solution}
+      Choose $h:\naturals\to\naturals$ defined by:
+      \[
+        h(n) = \begin{cases}
+          1 & \text{ if } n = 0\\
+          0 & \text{ if } n = 1\\
+          n & \text{ otherwise}
+        \end{cases}
+      \]
+      This is not the identity function since $f(1) = 0 \not=1$. But it is
+      surjective: choose $m\in\naturals$ if $m= 0$ then $f(1) = m$, if $m = 1$
+      then $f(0) = 1$, otherwise $f(m) = m$.
+
+      It is also injective, if $n\not=m$ then we can examine by cases, if
+      necessary, to see that $f$ does not map these different values to the same
+      value.
+    \end{solution}
+
+    \part neither injective nor surjective.
+    \begin{solution}
+      Choose $j:\naturals\to\naturals$ defined by $j(n) =1$. This is not
+      surjective, nothing maps to 2. And this is not injective, everything maps
+      to the same value.
+    \end{solution}
+  \end{parts}
+
+  \question[11] Prove that the function $f:\integers^{>0}\times\integers^{>0}\to
+  \integers^{>0}$ defined by $f(m,n) = 2^m\cdot 3^n$ is injective but not 
+  surjective.
+  \begin{solution}
+    This is injective: If $(m,n) \not= (a,b)$ then we have cases:
+
+    \textbf{Case 1:} $m\not= a$ then $2^m \not= 2^a$. Then no matter how many
+    multiples of three are multiplied on we have that $2^m \cdot 3^n \not= 2^a
+    3^b$.
+
+    \textbf{Case 2:} $n \not= b$ then $3^n \not= 3^b$. Again no matter how many
+    multiples of two are multiplied on we have that $2^m \cdot 3^n \not= 2^a
+    3^b$.
+
+    Thus in any case we have that $f(m,n) \not= f(a,b)$ so we have an injective
+    function.
+
+    However this function is not surjective. Only $m = 0$ can make $2^m = 1$ and
+    only $n=0$ can make $3^n = 1$ but 0 is not a valid value for $m$ or $n$.
+    Thus this function is not surjective.
+
+    Other examples are that no multiplication of multiples of $2$ and $3$ can
+    result in $5$.
+
+    \qed
+  \end{solution}
+
+  \question[10] Solve the following recurrence relations (provide a closed form
+  solution):
+  \begin{parts}
+    \part $a_n = -3a_{n-1}$, $a_0 = 4$
+    \begin{solution}
+      Solving this by reducing terms:
+      \begin{align*}
+        a_n &= -3 a_{n-1}\\
+        &= -3 (-3) a_{n_2} = 9 a_{n-2}\\
+        &= -3 (-3) (-3) a_{n-3} = - 27 a_{n-3}\\
+        &= \vdots\\
+        &= (-3)^{k} a_{n-k}\\
+        \intertext{Letting $k = n$:}
+        &= (-3)^{n} a_0\\
+        &= (-3)^{n} 4
+      \end{align*}
+    \end{solution}
+
+    \part $a_n = a_{n-1} + 1$, $a_0 = 12$
+    \begin{solution}
+      Again reducing terms:
+      \begin{align*}
+        a_n &= a_{n-1} + 1\\
+        &= a_{n-2} + 1 + 1\\
+        &= a_{n-3} + 1 + 1 + 1\\
+        &= \vdots\\
+        &= a_{n-k} + k\\
+        \intertext{Letting $k = n$:}
+        &= a_0 + n\\
+        &= 12 + n
+      \end{align*}
+    \end{solution}
+  \end{parts}
+
+  \question[10] Solve the following recurrence relations (provide a closed form
+  solution):
+  \begin{parts}
+    \part $a_n = 6a_{n-1} - 8a_{n-2}$, $a_0 = 1$, $a_1 = 0$.
+    \begin{solution}
+      This problem leads to the characteristic equation:
+      \[
+        x^2 - 6x + 8 = 0
+      \]
+      which factors as:
+      \[
+        (x-4)(x-2) = 0
+      \]
+      and so the solutions are $x =2,4$. Thus the general form of our solutions 
+      is:
+      \[
+        a_n = A2^n + B 4^n
+      \]
+      Using our initial conditions we get the two equations:
+      \begin{align*}
+        1 &= A + B\\
+        0 &= 2A + 4B
+      \end{align*}
+      we can solve for $A$ using the second equation: $A = -2B$ and plugging 
+      into the first equation we get:
+      \begin{align*}
+        1 &= -2B + B\\
+        1 &= -B\\
+        B &= -1
+      \end{align*}
+      Which gives that $A = 2$. Thus our solution is:
+      \[
+        a_n = 2(2^n) + (-1)4^n
+      \]
+      or 
+      \[
+        a_n = 2^{n+1} + (-1) 4^n
+      \]
+    \end{solution}
+
+    \part $a_n = 2a_{n-1} + 8 a_{n-2}$, $a_0 = 4$, $a_1 = 10$.
+    \begin{solution}
+      This problem leads to the characteristic equation:
+      \[
+        x^2 - 2x - 8 = 0
+      \]
+      which factors as:
+      \[
+        (x-4)(x+2) = 0
+      \]
+      and so the solutions are $x = -2,4$. Thus the general form of our solutions is:
+      \[
+        a_n = A(-2)^n + B 4^n
+      \]
+      Using our initial conditions we get the two equations:
+      \begin{align*}
+        4 &= A + B\\
+        10 &= -2A + 4B
+      \end{align*}
+      If we add two times the first equation to the second equation we get:
+      \begin{align*}
+        18 &= 0A +  6B\\
+        &= 6B\\
+        B &= 3
+      \end{align*}
+      Which gives that $A = 1$. Thus our solution is:
+      \[
+        a_n = (-2)^n + (3)4^n
+      \]
+    \end{solution}
+  \end{parts}
+
+  \question[5] Give an example of of two uncountable sets $A$ and $B$ such that
+  $A\cap B$ is:
+  \begin{parts}
+    \part finite
+    \begin{solution}
+      Choose $A = [1,2]$ and $B = [2,3]$, since $A$ and $B$ are intervals,
+      subsets of $\reals$ then they are uncountable. But $A\cap B = \{2\}$ which
+      is finite.
+    \end{solution}
+
+    \part countably infinite
+    \begin{solution}
+      Choose $A = \reals \times \rationals$ and $B = \rationals \times \reals$
+      then both $A$ and $B$ are uncountable since they contain $\reals$, which
+      is uncountable, but $A\cap B = \rationals \times \rationals$ which is
+      countable infinite.
+    \end{solution}
+
+    \part uncountably infinite
+    \begin{solution}
+      Choose $A = [1,3]$ and $B = [2,4]$ then $A$ and $B$ are uncountable, since
+      they are interval subsets of $\reals$. $A\cap B = [2,3]$ which is also an
+      interval subset of $\reals$ and is thus uncountable.
+    \end{solution}
+  \end{parts}
+\end{questions}
+\end{document}
