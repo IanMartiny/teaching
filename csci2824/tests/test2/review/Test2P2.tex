@@ -1,0 +1,159 @@
+%Thedore Ian Martiny
+%Summer 2016 final exam
+
+\documentclass[addpoints,12pt]{exam}
+\newcommand{\naturals}{\mathbb{N}}
+\newcommand{\integers}{\mathbb{Z}}
+\newcommand{\reals}{\mathbb{R}}
+\renewcommand{\baselinestretch}{1.5}
+%\setlength{\textwidth}{16cm}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage{colortbl}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{multicol}
+\usepackage{nopageno}
+\usepackage{setspace}
+\usepackage{wasysym}
+\usepackage{xcolor}
+ 
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{Gray}{gray}{0.85}
+ 
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\newcolumntype{a}{>{\columncolor{Gray}}c} 
+\lstset{style=mystyle}
+\begin{document}
+\singlespacing
+\hspace*{\fill}\textbf{Name:}\underline{\hspace{8cm}}
+
+\begin{center}
+  {\large\textbf{CSCI 2824 - Discrete Structures}}
+
+  {\large\textbf{Final Exam - Part 2}}
+\end{center}
+
+Grade: \underline{\hspace{1cm}} /\numpoints
+%Grade: \numpoints /\numpoints
+
+
+\begin{questions}
+  \question[12] Given the following propositions represent each sentence symbolically.
+  \begin{center}
+    $p: $ You heard the ``Flying Pigs'' rock concert.
+
+    $q: $ You heard the ``Y2K'' rock concert.
+
+    $r: $ You have sore eardrums.
+  \end{center}
+  \begin{parts}
+    \part You heard the ``Flying Pigs'' rock concert and you have sore eardrums.
+    \vspace*{2cm}
+    \begin{solution}
+    \end{solution}
+
+    \part You heard either the ``Flying Pigs'' rock concert or the ``Y2K'' rock concert, but you do not have sore eardrums.
+    \vspace*{5cm}
+    \begin{solution}
+    \end{solution}
+
+    \part It is not the case that: You heard the ``Flying Pigs'' rock concert or you heard the ``Y2K'' rock concert or you do not have sore eardrums.
+    \vspace*{5cm}
+    \begin{solution}
+    \end{solution}
+  \end{parts}
+
+  \newpage
+  \question[8] Using DeMorgan's Laws negate the following propositions.
+  \begin{parts}
+    \part Shirley will either take the bus or catch a ride to school.
+    \vspace*{8cm}
+    \begin{solution}
+    \end{solution}
+
+    \part Red pepper and onions are required to make chili.
+    \vspace*{4cm}
+    \begin{solution}
+    \end{solution}
+  \end{parts}
+
+  \newpage
+  \question[20] Let $U$ be a universal set and $X,Y\subseteq U$. Prove or provide a counter example that $\overline{Y\backslash X} = \overline{X\backslash Y}$
+  \vspace*{8cm}
+  \begin{solution}
+  \end{solution}
+
+  \newpage
+  \question[26] For the following questions, consider a shipment of 50 microprocessors of which four are defective. You may leave your answers in permutation or choose form, i.e. $\binom{n}{m}$ or $P^n_m$, but you must explain your answers thoroughly.
+  \begin{parts}
+    \part How many ways can we select a set of four non-defective processors?
+    \vspace*{9cm}
+    \begin{solution}
+    \end{solution}
+
+    \part In how many ways can we select a set of four microprocessors containing at least one defective microprocessor?
+    \vspace*{6cm}
+    \begin{solution}
+    \end{solution}
+  \end{parts}
+
+  \newpage
+  \question[7] How many integer solutions exist to the following equation:
+  \[
+    x_1 + x_2 + x_3 + x_4 = 30
+  \]
+  such that $x_1\geq 6$, $x_2,x_3 \geq 0$, $x_4 \geq 2$. You may leave your answer in permutation or choose form, i.e., $\binom{n}{m}$ or $P^n_m$ but you must explain your answer thoroughly.
+  \vspace*{10cm}
+  \begin{solution}
+  \end{solution}
+
+  \newpage
+  \question[7] Solve the following recurrence relation (show all work)
+  \[
+    a_n = -8a_{n-1} - 16a_{n-2}, \text{with initial conditions } a_0 =2, a_1 = -20
+  \]
+  \vspace*{8cm}
+  \begin{solution}
+  \end{solution}
+
+  \newpage
+  \question[20] Prove that the product of any consecutive five numbers is divisible by 120. (For example, the product of $3,4,5,6,7$ is 2520 which is $120\cdot 21$).
+  \vspace*{8cm}
+  \begin{solution}
+  \end{solution}
+
+  \newpage
+  \bonusquestion[10] Here is an opportunity for some extra points. If absolutely nothing is written on this page for every person on this class I will give 1 extra point to everyone's Final (test) grade. If only one person writes something (anything) on this page that person will get 10 points added to the their Final (test) grade and everyone else will get nothing. If two or more people write something (anything) on this page then no one gets any bonus points added to their Final (test). 
+
+  Anything at all written on this page counts, if you find that you need more paper for other problems you should NOT use this page unless you mean to go for the 10 points, you should instead ask me for paper.
+
+  Absolutely no questions can be asked about this bonus question. Any questions you do ask will be ignored. You absolutely must keep your eyes on your own paper (and guard your own paper!). Any glancing at another persons test (even innocently) will void all bonus for this test. Any announcements made at anytime during this test (whether about your answer, another persons answer, what people should answer, or anything at all about anything) will be considered cheating and I will necessarily go through all official channels to see that there is a punishment which fits the crime.
+
+\end{questions}
+\end{document}
