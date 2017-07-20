@@ -1,0 +1,383 @@
+%Thedore Ian Martiny
+%Summer 2017 Homework 6
+
+\documentclass[addpoints]{exam}
+\newcommand{\naturals}{\mathbb{N}}
+\newcommand{\integers}{\mathbb{Z}}
+\newcommand{\reals}{\mathbb{R}}
+\renewcommand{\baselinestretch}{1.5}
+%\setlength{\textwidth}{16cm}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage{colortbl}
+\usepackage{fullpage}
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{multicol}
+\usepackage{setspace}
+\usepackage{wasysym}
+\usepackage{xcolor}
+ 
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{Gray}{gray}{0.85}
+ 
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\newcolumntype{a}{>{\columncolor{Gray}}c} 
+\lstset{style=mystyle}
+\begin{document}
+\singlespacing
+
+\begin{center}
+  {\large\textbf{CSCI 2824 - Discrete Structures}}
+
+  {\large\textbf{Homework 6}}
+\end{center}
+
+You MUST show your work. If you only present answers you will receive minimal
+credit. This homework is worth \numpoints pts.
+
+\textbf{Due: Wednesday July 19}
+
+\begin{questions}
+  \question For the following question consider rolling two dice. One dice is
+  red and one is blue, but they are otherwise normal dice.
+  \begin{parts}
+    \part[4] How many outcomes result in a sum of 2? In a sum of 12?
+    \begin{solution}
+      Only one outcome results in a sum of 2, 1 and 1.
+
+      Only one outcome results in a sum of 12, 6 and 6.
+    \end{solution}
+
+    \part[4] How many outcomes have the blue die showing 2?
+    \begin{solution}
+      Six outcomes have the blue die showing 2. Any roll with the red die (of which there are 6).
+    \end{solution}
+
+    \part[4] How many outcomes give an even sum?
+    \begin{solution}
+      Possible even sums are 2, 4, 6, 8, 10, 12. 
+
+      There is only one way to make 2.
+
+      There are 3 ways to make 4, 2 and 2, red 3 blue 1 and red 1 blue 3.
+
+      There are 5 ways to make 6, 3 and 3, red 4 blue 2, red 2 blue 4, red 5
+      blue 1, and red 1 blue 5.
+
+      There are 5 ways to make 8, 4 and 4, red 5 blue 3, red 3 blue 5, red 6
+      blue 2, and red 2 blue 6.
+
+      There are 3 ways to make 10, 5 and 5, red 6 blue 4, and red 4 blue 6.
+
+      There is only one way to make 12.
+
+      Altogether there are 18 ways to get an even sum.
+    \end{solution}
+  \end{parts}
+
+  \question For the following questions consider an eight-bit string.
+  \begin{parts}
+    \part[2] How many eight-bit strings begin with $1100$?
+    \begin{solution}
+      We know the first four bits of the eight-bit string, the last 4 have 2
+      choices each. There are $2^4 =16$ eight-bit strings with $1100$ in the
+      first four bits.
+    \end{solution}
+
+    \part[2] How many eight-bit strings have exactly one $1$ in them?
+    \begin{solution}
+      If there is exactly one $1$ then the other $7$ bits are all $0$. Meaning
+      we only have to choose which place to put the $1$ in. There are
+      $\binom{8}{1} = 8$ ways to place the $1$.
+    \end{solution}
+
+    \part[5] How many eight-bit strings have exactly two $1$'s in them?
+    \begin{solution}
+      We know there will be two $1$s and six $0$s the only question is where to
+      place the two $1$s. There are $\binom{8}{2} = 28$ ways to place the two
+      $1$s.
+    \end{solution}
+
+    \part[5] How many eight-bit strings have at least one $1$ in them?
+    \begin{solution}
+      The long way to do this problem is to compute how many strings have one
+      $1$, how many have two $1s$ etc. The shorter is to compute the opposite.
+      How many have no $1$s. There is only one eight-bit string which has no
+      $1$s, every other string has at least one.
+
+      Thus there are $2^8-1 = 255$ eight-bit string which have at least one $1$
+      in them.
+    \end{solution}
+  \end{parts}
+
+  \question For the following questions determine how many permutations
+  (orderings) can be formed from $\{A,B,C,\allowbreak D,E\}$ subject to the
+  given constraints.
+  \begin{parts}
+    \part[4] The ordering contains the substring $ACE$ (in that order directly,
+    as in $ACEDB$ is one, but $ADCBE$ is not)
+    \begin{solution}
+      First we compute how many places can $ACE$ go. It could start at the
+      first, second, or third character. Meaning there are three ways of
+      choosing where to place $ACE$.
+
+      There are 2 ways of ordering the remaining two letters. 
+
+      Thus altogether we have $3\cdot 2= 6$ ways of forming strings with $ACE$
+      as a substring.
+    \end{solution}
+
+    \part[6] Does not contain the substring $AB$ nor $CD$ (again directly,
+    $ACEDB$ is acceptable).
+    \begin{solution}
+      To compute this we work with the opposite. That is we compute how many
+      strings have $AB$, have $CD$ and have $AB$ AND $CD$ and then subtract that
+      from the total number of strings. Note we have to compute the strings that
+      have both $AB$ and $CD$ and not do it separately so that we don't double
+      count some strings.
+
+      To count the number of strings that contain just $AB$ is just $4!$ since
+      we have to permute 4 objects: $AB, C, D, E$.
+
+      Similarly to count the number of strings that contain just $CD$ is $4!$ as
+      well.
+
+      To count the strings that contain both $AB$ and $CD$ is $3!$ since we
+      are permuting 3 object, $AB, CD, E$.
+
+      There are $5! = 120$ total strings from $\{A,B,C,D,E\}$ so there are $120
+      - (24 + 24 - 6) = 78$ strings which do not contain $AB$ nor $CD$ as
+      substrings. We need to subtract the 6, is because adding the two separate
+      cases double counts the cases where they both show up.
+    \end{solution}
+
+    \part[10] $A$ appears before $C$ which appears before $E$ (here there can be
+    letters between).
+    \begin{solution}
+      For this problem we will recognize why part of the total strings of length
+      5 are acceptable. There are $5! = 120$ possible strings. The possible
+      cases (which are all equally likely and have the same number of cases
+      are):
+      \begin{itemize}
+        \item $A$ appears before $C$ which appears before $E$ (acceptable).
+
+        \item $A$ appears before $C$ but $E$ appears before $C$ (not acceptable).
+
+        \item $C$ appears before $A$ which appears before $E$ (not acceptable).
+
+        \item $C$ appears before $E$ which appears before $A$ (not acceptable).
+
+        \item $E$ appears before $A$ which appears before $C$ (not acceptable).
+
+        \item $E$ appears before $C$ which appears before $A$ (not acceptable).
+      \end{itemize}
+
+      Each of these six options have just as many string which obey their rules.
+      And all strings obey one of the rules above. Meaning that only a sixth of
+      the total number of strings is acceptable. So there are
+      \[
+        \frac{5!}{6} = 20
+      \]
+      strings which have $A$ before $C$ which is before $E$.
+    \end{solution}
+  \end{parts}
+
+  \question[10] Prove that a number is divisible by 3 if and only if  the sum of
+  its digits is divisible by 3. (E.g. 27 is divisible by 3 since $2+7 = 9$ is
+  divisible by 3).
+  \begin{solution}
+    ($\Rightarrow$) If a number, $n$, is divisible by 3 then $n = 3k$ for some
+    integer $k$. We can write $n$ as multiples of powers of 10:
+    \[
+      n = a_k 10^k + a_{k-1} 10^{k-1} + \cdots + a_1 10 + a_0
+    \]
+    This is simply the base 10 expansion of $n$.
+
+    Thus we have the equation:
+    \begin{align*}
+      a_k 10^k + a_{k-1} 10^{k-1} + \cdots + a_1 10 + a_0 &= 3k\\
+      \intertext{Now take both sides modulo 3, noting that $10\mod 3 \equiv 1$}
+      a_k + a_{k-1} + \cdots + a_1 + a_0 \mod 3 \equiv 0
+    \end{align*}
+    Thus the sum of the digits is also a multiple of 3.
+
+    ($\Leftarrow$) If the sum of the digits of a number is a multiple of three
+    we can do the above proof backwards, given that the sum is a multiple of 3
+    multiplying each term by 1 does nothing to affect the sum, 10 is equivalent
+    to 1 modulo 3 thus $n$ is also a multiple of 3.
+  \end{solution}
+
+  \question[15] All numbers have some divisibility rule associated with them.
+  There are a couple for 7. The one we focus on here is that a number $n$ is
+  divisible by 7 if and only if when you subtract 2 times the least significant
+  digit from the number without its least significant digit the result is also
+  divisible by 7. E.g. 14 is divisible by 7 since $1 - 4\cdot 2 = -7$ is
+  divisible by 7. 343 is divisible by 7 since $34 - 3\cdot 2 = 28$ which is
+  divisible by 7. Prove this.
+  \begin{solution}
+    To prove this we do a similar trick as the previous problem: If a number is
+    divisible by 7 we can write $n = 7k$ for some integer $k$. Write $n$ in a
+    particular form:
+    \[
+      n = a_1 10 + a_0
+    \]
+    E.g. we could write $30248 = 3024\cdot 10 + 8$
+
+    Then our equation becomes:
+    \begin{align*}
+      a_1 10 + a_0 &= 7k
+      \intertext{Now take both sides modulo 7, noting that $10\mod 7 \equiv 3$}
+      a_1 3 + a_0 \mod 7 \equiv 0
+    \end{align*}
+    This gives a rule that we could split a number up by taking off the last
+    digit, multiplying the number made up of the large digits by 3 then add the
+    remaining digit, e.g. 343 is divisible by 7 since $34\cdot 3 +3 = 105$ and
+    105 is divisible by 7 since $10\cdot 3 + 5 = 35$ which is divisible by 7. 
+
+    This rule however doesn't scale well at all. Imagine needing to check
+    whether 13983, were divisible by 7 in your head, multiplying 1398 by 3 will
+    be a lot of work.
+
+    Thus we keep working with our equation above. It would be convenient if we
+    could get rid of the multiple of the higher digits. Thus we need to multiply
+    by the inverse of 3 modulo 7. $3^{-1} \mod 7 \equiv 5$. Thus our rule
+    becomes:
+    \[
+      a_1 + a_0 5 \mod 7 \equiv 0
+    \]
+    Which is better, we're only multiplying a small number by 5. However we can
+    actually make this easier by remembering that $5\equiv -2\mod 7$ thus our
+    equation is $a_1 -2 a_0 = 7k$.
+
+    Thus our algorithm is to split the least significant digit off the number,
+    multiply that by 2 and subtract it from the number without the least
+    significant digit.
+  \end{solution}
+
+  \question For the following questions find the number of (unordered) five-card
+  poker hands, selecting from an ordinary 52-card deck, having the properties
+  indicated.
+  \begin{parts}
+    \part[5] Containing four of a kind, that is, four cards of the same
+    denomination.
+    \begin{solution}
+      In order to get a four of a kind we must first choose which of the 13
+      denominations we will duplicate: there are $\binom{13}{1}$ options for
+      this.
+
+      Then we must choose which of the remaining 12 denominations we will allow
+      for our remaining card: $\binom{12}{1}$ ways to do this.
+
+      Then we must choose which suit it will be, there are $\binom{4}{1}$ ways
+      this could fall.
+
+      Thus there are $\binom{13}{1} \cdot \binom{12}{1} \cdot \binom{4}{1} =
+      624$
+    \end{solution}
+
+    \part[5] Containing cards of exactly two suits
+    \begin{solution}
+
+      This one is complicated we need to first over count and then eliminate
+      some possibilities.
+
+      Initially we count there are $\binom{4}{2}$ ways to count which suits are
+      represented and then there are $\binom{26}{5}$ ways of choosing our five
+      cards from among the 26 possible (only 2 suits allowed remember!). This
+      seems good, BUT this count also includes the possibility that we selected
+      all the same suit. Thus we need to subtract some values.
+
+      Thus we need to count how many hands have cards from one suit, essentially
+      a flush. There are $\binom{4}{1}$ ways of choosing which suit and
+      $\binom{13}{5}$ ways of choosing those cards.
+
+      Actually when we counted the possible hands with two suits we actually
+      counted each of the ways with one suit 3 times (can you see why?)
+
+      Thus there are:
+      \[
+        \binom{4}{2}\cdot\binom{26}{5} - 3\cdot\binom{4}{1}\cdot\binom{13}{5} =
+        379,236
+      \]
+      ways of getting exactly 2 suits.
+    \end{solution}
+
+    \part[5] Containing two of one denomination, two of another denomination and one of a third denomination.
+    \begin{solution}
+      In order to choose the first two we first see how many ways we have to
+      choose a denomination: $\binom{13}{1}$.
+
+      Then we must select two of this denomination: $\binom{4}{2}$.
+
+      Then we must select a denomination for the second two: $\binom{12}{1}$.
+
+      And which cards are selected: $\binom{4}{2}$.
+
+      Finally we select the third denomination: $\binom{11}{1}$.
+
+      And the card of that denomination: $\binom{4}{1}$.
+
+      Altogether we have:
+      \[
+        \binom{13}{1}\cdot \binom{4}{2}\cdot \binom{12}{1} \cdot
+        \binom{4}{2}\cdot \binom{11}{1}\cdot \binom{4}{1} = 247,104
+      \]
+      ways of forming hands of that type.
+    \end{solution}
+  \end{parts}
+
+  \question The following questions deal with selecting a committee from a club
+  consisting of six distinct men and seven distinct women.
+  \begin{parts}
+    \part[4] In how many ways can we select a committee of three men and four
+    women?
+    \begin{solution}
+      $\binom{6}{3}\cdot \binom{7}{4} = 700$.
+    \end{solution}
+
+    \part[4] In how many ways can we select a committee of four persons that has
+    at least one man?
+    \begin{solution}
+      $\binom{13}{4} = 715$ ways to choose a committee of four people, but we
+      need to eliminate all of the ones with no men which is $\binom{7}{4} =
+      35$ so there are 680 ways.
+    \end{solution}
+
+    \part[6] In how many ways can we select a committee of four persons that has
+    at most one man?
+    \begin{solution}
+
+      From the previous problem we have seen there are 35 ways to select a
+      committee with no man. Now just count the ways to choose a committee with
+      one man:
+
+      $\binom{6}{1}\cdot \binom{7}{3} = 210$ ways. Thus there are 245 ways to
+      select a committee with at most one man.
+    \end{solution}
+  \end{parts}
+\end{questions}
+\end{document}
